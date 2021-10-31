@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="shortcut icon" type="image/svg" href="{{ url_for('static', filename='favicon.svg') }}"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <title>Pick For Me</title>
+    </head>
+    <body style="backdrop-filter: blur(10px);">
+        <div class="recommendations">
+            <a id="back" href="">< Back</a>
+            <h2>Recommendations for <strong id="movie">{{ movie }}</strong></h2>
+            <ul>
+                {% for x in output %}
+                <li>{{ x }}</li>
+                {% endfor %}
+                {% for x in output2 %}
+                <li>{{ x }}</li>
+                {% endfor %}
+            </ul>
+            <p>Please rate our recommender system</p>
+            <form id="rating">
+                <input type="radio" name="rating" id="5" onclick="increment(5)">
+                <label for="5" class="fas fa-star"></label>
+                <input type="radio" name="rating" id="4" onclick="increment(4)">
+                <label for="4" class="fas fa-star"></label>
+                <input type="radio" name="rating" id="3" onclick="increment(3)">
+                <label for="3" class="fas fa-star"></label>
+                <input type="radio" name="rating" id="2" onclick="increment(2)">
+                <label for="2" class="fas fa-star"></label>
+                <input type="radio" name="rating" id="1" onclick="increment(1)">
+                <label for="1" class="fas fa-star"></label>
+            </form>
+        </div>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>
